@@ -1,0 +1,171 @@
+//convert degree celcius to fahrenheit
+    function convert(degree) {
+        //alert(degree)
+        var x = degree* 9 / 5 + 32;
+        return Math.round(x);
+    }
+	
+//actve button
+	<div class="button-bar">
+	  <a class="button" ng-class="{'button-assertive': isActive1('1')}" ng-click="setActive1('1')">Room 1</a>
+	  <a class="button" ng-class="{'button-assertive': isActive1('2')}" ng-click="setActive1('2')">Room 2</a>
+	  <a class="button" ng-class="{'button-assertive': isActive1('3')}" ng-click="setActive1('3')">Room 3</a>
+    </div>
+	
+	var active_room;
+    $scope.setActive1 = function(type) {
+        active_room = type;
+    };
+    $scope.isActive1 = function(type) {
+        return type === active_room;
+    };
+	
+//remember sign in
+
+<form class="form-signin loginForm">
+    <div class="list">
+        <label class="item item-input">
+        <input type="text" class="input1" placeholder="Username" id='username'>
+        </label>
+        <label class="item item-input">
+        <input type="password"  class="input2" placeholder="Password" id="pass">
+        </label>
+
+
+        <label class="checkbox">
+        <div style="display: inline-block;">
+            <input type="checkbox"  value="remember-me" id="remember_me"> 
+        </div>
+        <div style="display: inline-block;">
+            <span  style="color:white;">Remember me</span>
+        </div>
+        
+        
+       </label>
+    </div>
+    <!-- <button class="button btnSign button-calm" type="submit">Sign in</button> -->
+    <button class="button btnSign button-calm" ng-click="submit()">Sign in</button>
+</form> 
+
+$(function() {
+        console.log(localStorage.usrname)
+        console.log(localStorage.pass)
+        console.log(localStorage.chkbx)
+        if (localStorage.chkbx && localStorage.chkbx != '') {
+            $('#remember_me').attr('checked', 'checked');
+            $('#username').val(localStorage.usrname);
+            $('#pass').val(localStorage.pass);
+        } else {
+            $('#remember_me').removeAttr('checked');
+            $('#username').val('');
+            $('#pass').val('');
+        }
+
+        $('#remember_me').click(function() {
+            if ($('#remember_me').is(':checked')) {
+                // save username and password
+                localStorage.usrname = $('#username').val();
+                localStorage.pass = $('#pass').val();
+                localStorage.chkbx = $('#remember_me').val();
+            } else {
+                localStorage.usrname = '';
+                localStorage.pass = '';
+                localStorage.chkbx = '';
+            }
+        });
+    });
+	
+//toggle get value
+	<label class="toggle customClass">
+		<input type="checkbox" ng-model="vm.myChkModel" ng-change="vm.myClick(vm.myChkModel)"/>
+
+		<div class="track">
+			<div class="handle"></div>
+		</div>
+	</label>
+	
+	$scope.vm = {};
+	  $scope.vm.myClick = function($event) {
+			//alert($event);
+			if($event == true){
+				hidden = "yes";
+				$scope.showToastMsg(hidden);
+			}else{
+				hidden = "no";
+				$scope.showToastMsg(hidden);
+			}
+			
+	  }
+	  
+//drop down
+	<label class="item item-input">
+		<span class="input-label">COUNTER</span>
+		<select class="select" id="selected">
+		<option>0</option>
+		<option>1</option>
+		<option>2</option>
+		<option>3</option>
+		<option>4</option>
+		<option>5</option>
+		</select>
+	</label>
+	
+	var selected = document.getElementById('selected').value;
+	
+//wifi info
+//install plugin "cordova plugin add cordova-wifiinfo-plugin"
+//link:https://www.npmjs.com/package/cordova-wifiinfo-plugin
+
+	function success(results) {
+		var data = JSON.stringify(results);
+		var parseData = JSON.parse(data);
+		var ssidStr = parseData.SSID;
+		var bssidStr = parseData.BSSID;
+		ssid = ssidStr.replace(/['"]+/g, '');
+		alert(ssid);
+   
+		bssid = bssidStr.replace(/['"]+/g, '');
+		alert(bssid);
+		document.getElementById('ssid').value = ssid;
+		document.getElementById('bssid').value = bssid;
+	};
+
+	function err(e) {
+		alert(JSON.stringify(e));
+	};
+
+	WifiInfo.getWifiInfo(success,err);
+	
+
+//convert degree celcius to fahrenheit
+    function convert(degree) {
+        //alert(degree)
+        var x = degree* 9 / 5 + 32;
+        return Math.round(x);
+    }
+
+//remove extra space from string
+var str = ' Hi hello    How are  you ';
+
+str = str.trim();  //Hi hello How are you
+
+
+//split string
+
+	var str = "Name:Raj"
+	var words = str.split(":");
+    for (var i = 0; i < words.length - 1; i++) {
+        words[i] += " ";
+    }
+    words[0] //Name
+    words[1]; //Raj
+
+//creating variables dynamically
+
+ 	var variable0 = 'variable1';
+    var variable1 = 'variable2';
+
+    for(i=0;i<10;i++){
+        eval('var ' + (variable0 + [i]) + ' = "Hiiiiii"');
+        eval('var ' + (variable1 + [i]) + ' = "Byeeeee"');
+    }
