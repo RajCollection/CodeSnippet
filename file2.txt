@@ -1,0 +1,256 @@
+//app full screen
+
+ionic.Platform.fullScreen();
+	or
+	//add the following code in config.xml file
+<platform name="android">
+    <preference name="Fullscreen" value="true" />
+ </platform>
+
+
+//getting element id
+	function myFunction() {
+		var x = document.getElementById("myAnchor").id;
+	}
+	
+//configure states
+	var app = angular.module('starter', ['ionic', 'ui.router', 'ngCordova']);
+
+	app.config(function($stateProvider, $urlRouterProvider){
+
+	  $stateProvider
+		.state('index', {
+		  url: "",
+			  templateUrl: "partials/home.html",
+			  controller: "homeController"            
+		})
+
+		.state('selection', {
+		  url: "/selection",
+			  templateUrl: "partials/selection.html",
+			  controller: "selectionController"
+		})
+	});
+
+//navigation; reference link: https://www.thepolyglotdeveloper.com/2014/11/using-ui-router-navigate-ionicframework/
+ index.html
+
+   <ion-nav-view></ion-nav-view>
+
+
+home.html
+
+<ion-view view-title="HOME">
+    <ion-content>
+
+    </ion-content>
+</ion-view>
+
+//Div transition forward
+	var click = 0;
+	$scope.levelFront = function(){
+		click=click+1;
+		if(click==1){
+		  var div = document.getElementById("content_1");
+		  div.style.display = "none";
+		  var div = document.getElementById("content_2");
+		  div.style.display = "block";
+
+		}else if(click==2){
+			var div = document.getElementById("content_2");
+			div.style.display = "none";
+			var div = document.getElementById("content_3");
+			div.style.display = "block";
+		}else{
+		   
+		}
+	
+	}
+
+//Div transition backward
+	$scope.levelBack = function(){
+		click=click-1
+			if(click==1){
+			var div = document.getElementById("content_3");
+			div.style.display = "none";
+			var div = document.getElementById("content_2");
+			div.style.display = "block";
+		}else if(click==0){
+			var div = document.getElementById("content_2");
+			div.style.display = "none";
+			var div = document.getElementById("content_1");
+			div.style.display = "block";
+		}
+		else{
+
+		}
+	}
+	
+//go to particular state and find current state
+	$scope.goToBack = function(){
+		if($state.current.name == 'selection'){
+			$state.go('index');
+
+		}
+	}
+	
+//virtual keyboard using css and jquery
+	https://code.tutsplus.com/tutorials/creating-a-keyboard-with-css-and-jquery--net-5774
+	
+//find the focus id of input field
+	var focusedId = document.activeElement.id;
+	if (focusedId == 'answerInput1' || focusedId == 'answerInput2') {
+		$('#'+focusedId).val($('#'+focusedId).val() + character);
+		setTimeout(function(){ $('#'+focusedId).focus(); }, 1);
+	}
+	
+//creating empty array and push data to array
+	$scope.level_1_Images = []; //create empty array
+	var mData = JSON.parse(localStorage.data); //assigning local data to a variable mData
+          
+	for(i = 0; i < mData.length; i++) {
+		
+		if(mData[i]['Level'] == 'Level 1') {
+			var manu = mData[i]['Manufacturer Name Primary'];
+			var model = mData[i]['Car Name Primary'];
+			var tmp = model.replace(/ +/g, "");;
+			var filename = manu+'_'+tmp+'.png';
+			//push to array
+			$scope.level_1_Images.push(filename);
+
+		}
+		
+//get image src
+	$("img").click(function() {
+		var imgId = this.id;
+		imgSrc = document.getElementById(imgId).src;
+		alert(imgSrc);
+	});
+	
+//create 2d array to store excel data
+	function getLevelWiseData(edata) {
+		var mdata = [];
+		for(var k = 0; k < 10; k++) {
+			mdata[k] = [];
+			for(var i = 0; i < edata.length; i++) {
+				if(edata[i]['Level'] == 'Level '+(k+1)){
+				   var manu = edata[i]['Manufacturer Name Primary'];
+					var model = edata[i]['Car Name Primary'];
+					var tmp = model.replace(/ +/g, "");
+					tmp = tmp.replace('/', "");
+					var filename = manu+'_'+tmp+'.png';
+					edata[i]['carImage'] = filename;
+					mdata[k].push(edata[i]);
+				}
+			}            
+		}
+		 console.log(mdata)
+		return mdata;
+
+	}
+	
+//sliding
+	$(function() {
+		$(".rslides").responsiveSlides();
+	});
+	
+//right and left navigation of divs
+	var click = 0;
+	$scope.levelFront = function(){
+		/*$scope.sound(); */
+		click=click+1;
+		if(click==1){
+		  var div = document.getElementById("content_1");
+		  div.style.display = "none";
+		  var div = document.getElementById("content_2");
+		  div.style.display = "block";
+
+		}else if(click==2){
+			var div = document.getElementById("content_2");
+			div.style.display = "none";
+			var div = document.getElementById("content_3");
+			div.style.display = "block";
+		}else{
+		   
+		}
+	
+	}
+
+	//transition backward
+	$scope.levelBack = function(){
+		  /*$scope.sound();*/ 
+		click=click-1
+			if(click==1){
+			var div = document.getElementById("content_3");
+			div.style.display = "none";
+			var div = document.getElementById("content_2");
+			div.style.display = "block";
+		}else if(click==0){
+			var div = document.getElementById("content_2");
+			div.style.display = "none";
+			var div = document.getElementById("content_1");
+			div.style.display = "block";
+		}
+		else{
+
+		}
+	}
+	
+//assign initial value to array and store it into localStorage
+	if(localStorage.levelScore == null) {
+		$scope.levelScore = Array.apply(null, Array($scope.levelCount)).map(Number.prototype.valueOf,0);
+	}
+	
+//interaction between controllers
+$rootScope is used to get the values from one controller to another
+
+//rating
+	//display star rating
+        $('input.rating').rating();
+        
+    //load rating from localstorage and display
+        for(var i=0; i < mData[IdNum-1].length; i++) {
+            if(mData[IdNum-1][i]['Rating'] != 0){
+               /* console.log(mData[IdNum-1][i]['Rating'])*/
+                $('#'+i).rating('rate', mData[IdNum-1][i]['Rating']);
+              
+            }else{
+                
+            }
+        }
+
+    //select rating and store it into localstorage
+        $('input.rating').on('change', function (event) {
+            var id = event.target.id;
+            tempData = JSON.parse(localStorage.data);
+            tempData[IdNum-1][id]['Rating'] = $(this).val();
+            localStorage.data = JSON.stringify(tempData);
+        }); 
+//delete last character of string
+	$scope.delete = function(){
+		var focusedId = $scope.currentTextField;
+		var textInput = $('#'+focusedId).html(); 
+		var str = textInput.slice(0, -1);
+		$('#'+focusedId).html(str);
+
+	}
+	
+//jquery used to blur and non clickable
+	$(".gcar"+i).css("pointer-events", "none");
+	$(".gcar"+i).css("filter", "opacity(0.4)");
+	
+//jquery used to unblur and clickable
+    $(".gcar"+i).css("pointer-events", "auto");
+	$(".gcar"+i).css("filter", "none"); 
+
+//hide status bar
+
+cordova plugin add https://github.com/apache/cordova-plugin-statusbar.git
+
+.controller('MyCtrl', function($scope) {
+  ionic.Platform.ready(function() {
+    // hide the status bar using the StatusBar plugin
+    StatusBar.hide();
+  });
+});	
+
