@@ -1,4 +1,4 @@
-Which file contaion what? go back and open particular file to get required function
+Which file contaion what? go back to directory(Click on codeSnippet) to open particular file to get required function
 
 File - 1
 
