@@ -1,0 +1,70 @@
+Which file contaion what? go back and open particular file to get required function
+
+File - 1
+
+. Screen animation
+. Screen swiping
+. Ionic project app version
+. File Download
+. Get current time and date
+. Cordova notification
+. Cordova toast message
+. Read Excel
+. App background and foreground activity
+. Showing loader
+. Hiding loader
+. Native click sound of app
+. Native audio sound, user defined mp3 sound
+. Cordoav move file from directory to directory
+. Cordova Copy file from one directory to another
+. Cordova Remove file from directory
+. Read text file
+. Device backbutton functionality
+. Copy to clipboard
+. Share data to social network
+
+
+file-2
+
+. Ionic platform app fullscreen
+. Getting element ID in HTML
+. Configure states in app.js
+. Div transition forward and backword
+. Goto perticular state or find current state
+. Find id of focused input box
+. Creating empty array and push data to array
+. Getting image source
+. Create 2D array to store excel data
+. Sliding
+. Right and left navigation of DIVS
+. Assign initial value to array and store it into localStorage
+. Interaction between controllers
+. Rating
+. Load rating from localstorage and display
+. Select rating and store into localstorage
+. Delete last character of string
+. jquery function used to blur and make element non clickable
+. jquery function used to unblur and make element clickable
+. Hide Status bar
+
+file-3
+
+. Websocket connection at client side
+. Websocket connection at server side
+. MQTT connection
+. Database connection in node.js
+. Insert data in to DB
+. Retrieve data from DB
+
+File-4
+
+. Convert degree celcius to fahrenheit
+. Active buttons
+. Remember sign-in
+. Toggle get value
+. Drop down
+. Wifi info
+. Remove extra space from string
+. Split string
+. Creating variables dynamically
+. Generating random string
