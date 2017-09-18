@@ -22,6 +22,7 @@ File - 1
 . Device backbutton functionality
 . Copy to clipboard
 . Share data to social network
+. Ionic keyboard events
 
 
 file-2
