@@ -399,3 +399,19 @@
 	}
 
 	dateToday();
+
+//ionic on keyboard open event
+install plugin "cordova plugin add cordova-plugin-ionic-keyboard"
+
+window.addEventListener('native.keyboardshow', keyboardShowHandler);
+function keyboardShowHandler(e){
+   //Do something 
+}
+
+//ionic on keyboard close event
+install plugin "cordova plugin add cordova-plugin-ionic-keyboard"
+
+window.addEventListener('native.keyboardhide', keyboardHideHandler);
+function keyboardHideHandler(e){
+    //do something
+}
