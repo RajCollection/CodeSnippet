@@ -1,17 +1,48 @@
 /* File Download using node.js*/
 
-//install 'npm install download-file --save'
+        //install 'npm install download-file --save'
 
-var download = require('download-file')
+        var download = require('download-file')
 
-var url = "http://i.imgur.com/G9bDaPH.jpg"
+        var url = "http://i.imgur.com/G9bDaPH.jpg"
 
-var options = {
-    directory: "./apis/files/",
-    filename: "cat.jpg"
-}
+        var options = {
+            directory: "./apis/files/",
+            filename: "cat.jpg"
+        }
 
-download(url, options, function(err){
-    if (err) throw err
-    console.log("meow")
+        download(url, options, function(err){
+            if (err) throw err
+            console.log("meow")
+        })
+
+
+/*Read excel file and parse data using node.js*/
+
+var workbook = XLSX.readFile('sample.xlsx');
+var sheet_name_list = workbook.SheetNames;
+sheet_name_list.forEach(function(y) {
+    var worksheet = workbook.Sheets[y];
+    var headers = {};
+    var data = [];
+    for(z in worksheet) {
+        if(z[0] === '!') continue;
+        //parse out the column, row, and value
+        var col = z.substring(0,1);
+        var row = parseInt(z.substring(1));
+        var value = worksheet[z].v;
+
+        //store header names
+        if(row == 1) {
+            headers[col] = value;
+            continue;
+        }
+
+        if(!data[row]) data[row]={};
+        data[row][headers[col]] = value;
+    }
+    //drop those first two rows which are empty
+    data.shift();
+    data.shift();
+    
 })
