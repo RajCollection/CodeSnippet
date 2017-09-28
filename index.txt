@@ -33,6 +33,7 @@ file-2
 . Div transition forward and backword
 . Goto perticular state or find current state
 . Find id of focused input box
+. Clear focused input box data
 . Creating empty array and push data to array
 . Getting image source
 . Create 2D array to store excel data
