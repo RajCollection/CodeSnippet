@@ -235,6 +235,24 @@ $rootScope is used to get the values from one controller to another
 
 	}
 	
+// Clear focused input box data
+Enter your fist name: <input type="text" id="first" onfocus="myFunction(this)"/>
+Enter your last name: <input type="text" id="last" onfocus="myFunction(this)"/>
+
+<button  onclick="load_getUserListByGroupID(this)">clear</button>
+
+function myFunction(x) {
+    localStorage.id =x.id; 
+    x.style.background = "yellow";
+}
+
+function load_getUserListByGroupID(element) {
+  //alert(element.id);
+  //alert(localStorage.id)
+  document.getElementById(localStorage.id).value="";
+}
+
+
 //jquery used to blur and non clickable
 	$(".gcar"+i).css("pointer-events", "none");
 	$(".gcar"+i).css("filter", "opacity(0.4)");
