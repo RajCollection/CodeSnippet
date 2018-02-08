@@ -415,3 +415,25 @@ window.addEventListener('native.keyboardhide', keyboardHideHandler);
 function keyboardHideHandler(e){
     //do something
 }
+
+//password show/hidden
+<img class="image1 toggleMe" id="image1" src="img/eye-closed.svg">    
+<img class="image2 toggleMe" id="image2" src="img/eyeopen.svg">
+
+var ele = document.getElementById('password');
+//password hidden/show
+$(function () {
+	$(".toggleMe").click(function () {
+	   // console.log($scope.password)
+	    if($scope.password != undefined){
+		if(ele.type == "password"){
+		    ele.type="text";
+		    $(".toggleMe").toggle()
+		}else{
+		    ele.type="password";
+		    $(".toggleMe").toggle()
+		}
+
+	    }
+	})
+});
