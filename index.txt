@@ -23,6 +23,7 @@ File - 1
 . Copy to clipboard
 . Share data to social network
 . Ionic keyboard events
+. password hidden/show
 
 
 file-2
