@@ -76,3 +76,5 @@ File-4
 File-5 (node.JS related)
 . File Download using node.js
 . Read excel file and parse data using node.js
+. Get object from array by value of property
+. Get index of object in array 
