@@ -437,3 +437,30 @@ $(function () {
 	    }
 	})
 });
+
+/*Get object from array by value of property*/
+
+var names = [{"id":1,"name":"abc"},{"id":2,"name":"def"}];
+
+var filterObj = names.filter(function(e) {
+     return e.id == 1; //1 is value of propery "id"
+     //return e.name == "abc"; //abc is value of propery "name"
+});
+
+console.log(filterObj)
+
+/*Get the index of object in array */
+
+var names = [{"id":1,"name":"abc"},{"id":2,"name":"def"}];
+
+function findIndexInData(data, property, value) {
+  for(var i = 0, l = data.length ; i < l ; i++) {
+    if(data[i][property] === value) {
+      return i;
+    }
+  }
+  return -1;
+}
+
+findIndexInData(names, "id", 1); //names is a array of object, "id" is a property, 1 is a value of property
+
