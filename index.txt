@@ -73,6 +73,7 @@ File-4
 . Split string
 . Creating variables dynamically
 . Generating random string
+. Convert JSON Data Dynamically to HTML Table using JavaScript - Dynamically Create table with rows in JavaScript
 
 
 File-5 (node.JS related)
