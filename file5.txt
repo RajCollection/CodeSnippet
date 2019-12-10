@@ -47,3 +47,12 @@ sheet_name_list.forEach(function(y) {
     
 })
 
+/* Search text in Array of objects*/
+function searchText(arrData, searchKey) {
+  return arrData.filter(function(obj) {
+    return Object.keys(obj).some(function(key) {
+      return obj[key].includes(searchKey);
+    })
+  });
+}
+
